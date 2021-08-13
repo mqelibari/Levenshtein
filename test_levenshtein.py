@@ -15,6 +15,10 @@ class LevenshteinDistanceTestCase(unittest.TestCase):
         result = levenshtein_distance("     ", "avs")
         self.assertEqual(3, result)
 
+    def test_distanceTwoNonEqualCharsEqualsOne(self):
+        result = levenshtein_distance("a", "b")
+        self.assertEqual(1, result)
+
 
 if __name__ == '__main__':
     unittest.main()
