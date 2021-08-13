@@ -1,9 +1,11 @@
 import unittest
+from levenshtein import levenshtein_distance
 
 
-class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        self.assertEqual(True, False)
+class LevenshteinDistanceTestCase(unittest.TestCase):
+    def test_distanceOfTwoEmptyStringsEqualsZero(self):
+        result = levenshtein_distance("", "")
+        self.assertEqual(0, result)
 
 
 if __name__ == '__main__':
