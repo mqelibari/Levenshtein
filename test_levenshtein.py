@@ -27,9 +27,9 @@ class LevenshteinDistanceTestCase(unittest.TestCase):
         result = levenshtein_distance("Hamxyzmer", "Hammer")
         self.assertEqual(3, result)
 
-    # def test_differnetWordsDifferentLength(self):
-    #     result = levenshtein_distance("Auto", "Pennymarkt")
-    #     self.assertEqual(9, result)
+    def test_differentWordsDifferentLength(self):
+        result = levenshtein_distance("Auto", "Pennymarkt")
+        self.assertEqual(10, result)
 
 
 if __name__ == '__main__':

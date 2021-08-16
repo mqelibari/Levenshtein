@@ -4,17 +4,16 @@ def levenshtein_distance(word_one: str, word_two: str) -> int:
     word_two = word_two.replace(" ", "")
     if len(word_one) == 0 or len(word_two) == 0:
         return max(len(word_one), len(word_two))
-    elif len(word_one) == len(word_two) and word_two != word_one:
+    if word_one[-1] != word_two[-1]:
+        distance = 1
+    else:
         distance = 0
-        for i in range(len(word_one)):
-            if word_two[i] != word_one[i]:
-                distance += 1
-        return distance
-    elif len(word_one) != len(word_two):
-        distance = 0
-        distance += levenshtein_distance(word_one[:len(word_two)], word_two)
-        return distance
 
+    delete = levenshtein_distance(word_one[:-1], word_two) + 1
+    insert = levenshtein_distance(word_one, word_two[:-1]) + 1
+    same = levenshtein_distance(word_one[:-1], word_two[:-1]) + distance
+
+    return min(delete, insert, same)
 
 
 def switch_longer_word_two_one(word_one, word_two):
