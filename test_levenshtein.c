@@ -29,9 +29,11 @@ void test_levenshtein_with_one_different_char(void){
 	TEST_ASSERT_EQUAL_INT(1, result);
 }
 
-void test_levenshtein_full_algorithem(void){
+void test_levenshtein_full_algorithm(void){
 	int result = levenshtein("Fisch", "Fleisch");
 	TEST_ASSERT_EQUAL_INT(2, result);
+	int second_result = levenshtein("Baumarkt", "Autobahn");
+	TEST_ASSERT_EQUAL_INT(8, second_result);
 }
 
 
@@ -49,6 +51,7 @@ int main(){
 	RUN_TEST(test_remove_whitespaces);
 	RUN_TEST(test_levenshtein_with_one_different_char);
 	RUN_TEST(test_string_slice);
+	RUN_TEST(test_levenshtein_full_algorithm);
 	return UNITY_END();
 }
 
