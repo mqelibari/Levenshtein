@@ -24,11 +24,18 @@ void test_remove_whitespaces(void){
 }
 
 
+void test_levenshtein_with_one_different_char(void){
+	int result = levenshtein("a", "b");
+	TEST_ASSERT_EQUAL_INT(1, result);
+}
+
+
 int main(){
 	UNITY_BEGIN();
 	RUN_TEST(test_levenshtein_with_empty_strings);
 	RUN_TEST(test_levenshtein_with_one_empty_string);
 	RUN_TEST(test_remove_whitespaces);
+	RUN_TEST(test_levenshtein_with_one_different_char);
 	return UNITY_END();
 }
 
