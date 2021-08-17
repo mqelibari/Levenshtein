@@ -29,6 +29,18 @@ void test_levenshtein_with_one_different_char(void){
 	TEST_ASSERT_EQUAL_INT(1, result);
 }
 
+void test_levenshtein_full_algorithem(void){
+	int result = levenshtein("Fisch", "Fleisch");
+	TEST_ASSERT_EQUAL_INT(2, result);
+}
+
+
+void test_string_slice(void){
+	char* word = "abcdef";
+	char* sliced = string_slice(word, 0, 2);
+	TEST_ASSERT_EQUAL_STRING("ab", sliced);	
+}
+
 
 int main(){
 	UNITY_BEGIN();
@@ -36,6 +48,7 @@ int main(){
 	RUN_TEST(test_levenshtein_with_one_empty_string);
 	RUN_TEST(test_remove_whitespaces);
 	RUN_TEST(test_levenshtein_with_one_different_char);
+	RUN_TEST(test_string_slice);
 	return UNITY_END();
 }
 

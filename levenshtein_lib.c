@@ -30,3 +30,19 @@ char* remove_whitespaces(char* word){
     return new_string;
 
 }
+
+
+char* string_slice(char* word, int left_boarder, int right_boarder){
+	char* sliced = malloc((right_boarder - left_boarder) * sizeof(char));
+	if(sliced == NULL){
+		exit(1);
+	}
+	int j = 0;
+	for(int i = 0; i < strlen(word); i++){
+		if(i >= left_boarder && i< right_boarder){
+			sliced[j] = word[i];
+			j++;
+		}
+	}
+	return sliced;
+}
